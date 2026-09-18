@@ -1,5 +1,6 @@
-package util;
-import java.util.Arrays;
+package linkedlist.util;
+import linkedlist.pojo.Node;
+import linkedlist.pojo.SpecialNode;
 
 public class MyUtils {
     //swap是程序员
@@ -10,6 +11,14 @@ public class MyUtils {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+    public static void swap(Node[] arr, int i, int j) {
+        if (arr[i] == arr[j]) return;
+
+        Node temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
 
     /**
      * 随机数组生成器
@@ -66,4 +75,130 @@ public class MyUtils {
 
         return copyArr;
     }
+
+    /**
+     * 链表生成器
+     */
+    public static Node linkedListGenerator(int nodeCounts, int min, int max) {
+        Node head = new Node((int)(Math.random() * (max - min + 1) + min));
+        Node tail = head;
+
+        for (int i = 1; i < nodeCounts; i++) {
+            tail.next = new Node((int)(Math.random() * (max - min + 1) + min));
+            tail = tail.next;
+        }
+
+        return head;
+    }
+
+    /**
+     * 按照数组生成链表
+     */
+    public static Node linkedListGenerator(int[] arr) {
+        Node head = new Node(arr[0]);
+        Node tail = head;
+        for (int i = 1; i < arr.length; i++) {
+            tail.next = new Node(arr[i]);
+            tail = tail.next;
+        }
+
+        return head;
+    }
+
+    /**
+     * 将单链表值输出到控制台
+     * @param head 头节点
+     */
+    public static void printLinkedList(Node head) {
+        while (head != null) {
+            System.out.print(head.value + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void printLinkedList(SpecialNode head) {
+        while (head != null) {
+            System.out.print(head.value + " ");
+            head = head.next;
+        }
+
+        System.out.println();
+    }
+
+    /**
+     * 将链表节点放到数组并返回
+     */
+    public static Node[] linkedListToArray(Node head) {
+        // 遍历一遍获取节点数量
+        Node tempHead = head;
+        int nodeCounts = 0;
+        while (tempHead != null) {
+            tempHead = tempHead.next;
+            nodeCounts++;
+        }
+
+        Node[] nodes = new Node[nodeCounts];
+        tempHead = head;
+
+        for (int i = 0; i < nodes.length; i++) {
+            nodes[i] = tempHead;
+            tempHead = tempHead.next;
+        }
+
+        return nodes;
+    }
+
+    /**
+     * 拷贝链表
+     */
+    public static Node copyLinkedList(Node head) {
+        Node newHead = new Node(head.value);
+        Node newTail = newHead;
+        while(head.next != null) {
+            head = head.next;
+            newTail.next = new Node(head.value);
+            newTail = newTail.next;
+        }
+
+        return newHead;
+    }
+
+    /**
+     * 特殊链表生成器（带有randomPointer指针）
+     */
+    public static SpecialNode specialLinkedListGenerator(int nodeCounts, int min, int max) {
+        SpecialNode[] nodes = new SpecialNode[nodeCounts];
+
+        // 1. 生成基础链表
+        SpecialNode head = new SpecialNode((int)(Math.random() * (max - min + 1) + min));
+        SpecialNode tail = head;
+        nodes[0] = head;
+
+        for (int i = 1; i < nodeCounts; i++) {
+            tail.next =  new SpecialNode((int)(Math.random() * (max - min + 1) + min));
+            tail = tail.next;
+            nodes[i] = tail;
+        }
+
+        // 2. 处理随机指针
+        for (int i = 0; i < nodes.length; i++) {
+            nodes[i].randomPointer = randomChoiceSpecialNode(nodes);
+        }
+
+        return head;
+    }
+
+    /**
+     * 随机返回数组里面的一个节点或者返回一个null(0~length为length的时候返回null)
+     */
+    public static SpecialNode randomChoiceSpecialNode(SpecialNode[] nodes) {
+        int index = (int)(Math.random()* ((nodes.length) + 1));
+        if(index == nodes.length) {
+            return null;
+        }
+
+        return nodes[index];
+    }
+
 }

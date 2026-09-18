@@ -1,3 +1,8 @@
+package linkedlist;
+
+import linkedlist.pojo.Node;
+import linkedlist.util.MyUtils;
+
 // 链表题目
 public class Main12 {
     // 1. 反转单向和双向链表
@@ -6,9 +11,9 @@ public class Main12 {
         Node head = singlyLinkedListGenerator(nodeCounts,1,100);
 
         // test singlyLinkedListInversion()
-        printLinkedList(head);
+        MyUtils.printLinkedList(head);
         head = singlyLinkedListInversion(singlyLinkedListInversion(head)); // 直接转换两次就可以边界的看是否反转成功了
-        printLinkedList(head);
+        MyUtils.printLinkedList(head);
 
         System.out.println("\n\n==================\n\n");
 
@@ -123,17 +128,7 @@ public class Main12 {
         return (int)(Math.random() * (max - min +1) + min);
     }
 
-    /**
-     * 将单链表值输出到控制台
-     * @param head 头节点
-     */
-    public static void printLinkedList(Node head) {
-        while (head != null) {
-            System.out.print(head.value + " ");
-            head = head.next;
-        }
-        System.out.println();
-    }
+
 
     /**
      * 重载printSinglyLinkedList方法
@@ -150,13 +145,7 @@ public class Main12 {
 }
 
 // 单向链表节点
-class Node {
-    int value;
-    Node next;
-    public Node(int value) {
-        this.value = value;
-    }
-}
+
 
 // 双链表节点
 class DoubleNode {

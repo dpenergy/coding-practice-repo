@@ -1,3 +1,4 @@
+package linkedlist;
 import java.util.Arrays;
 
 // 再手敲一遍归并排序和快速排序

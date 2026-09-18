@@ -1,3 +1,7 @@
+package linkedlist;
+import linkedlist.pojo.Node;
+import linkedlist.util.MyUtils;
+
 import java.util.Arrays;
 
 // 打印有序链表的公共部分
@@ -8,8 +12,8 @@ public class Main13 {
         Node head1 = orderedLinkedListGenerate(nodeCounts,1,50);
         Node head2 = orderedLinkedListGenerate(nodeCounts,1,59);
 
-        Main12.printLinkedList(head1);
-        Main12.printLinkedList(head2);
+        MyUtils.printLinkedList(head1);
+        MyUtils.printLinkedList(head2);
 
         printPublicPart(head1,head2);
     }

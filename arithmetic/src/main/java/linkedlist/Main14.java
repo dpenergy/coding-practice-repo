@@ -1,4 +1,6 @@
-import util.MyUtils;
+package linkedlist;
+import linkedlist.pojo.Node;
+import linkedlist.util.MyUtils;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -8,13 +10,13 @@ import java.util.Stack;
 public class Main14 {
     public static void main(String[] args) {
         Node head = palindromeLinkedListGenerator(7,1,100);
-        Main12.printLinkedList(head);
+        MyUtils.printLinkedList(head);
 
         System.out.println(verifyPalindromeLinkedList(head));
         System.out.println(verifyPalindromeLinkedListPlusVersion(head));
 
 
-        Main12.printLinkedList(head);
+        MyUtils.printLinkedList(head);
 
     }
 

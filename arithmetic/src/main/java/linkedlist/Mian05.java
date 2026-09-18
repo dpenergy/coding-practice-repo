@@ -1,3 +1,4 @@
+package linkedlist;
 import java.util.Arrays;
 
 // 快速排序v3.0实现

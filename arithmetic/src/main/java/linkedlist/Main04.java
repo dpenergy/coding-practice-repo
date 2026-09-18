@@ -1,3 +1,4 @@
+package linkedlist;
 import java.util.Arrays;
 
 // 使用归并排序解决小和问题
