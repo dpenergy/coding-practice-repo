@@ -106,6 +106,25 @@ public class MyUtils {
     }
 
     /**
+     * 环形链表生成器
+     */
+    public static Node loopLinkedListGenerator(int nodeCounts, int min, int max) {
+        Node head = new Node((int)(Math.random() * (max - min + 1) + min));
+        Node tail = head;
+
+        for (int i = 1; i < nodeCounts; i++) {
+            tail.next = new Node((int)(Math.random() * (max - min + 1) + min));
+            tail = tail.next;
+        }
+
+        tail.next = head;
+
+        return head;
+    }
+
+
+
+    /**
      * 将单链表值输出到控制台
      * @param head 头节点
      */
