@@ -1,7 +1,7 @@
 package linkedlist;
 
 import linkedlist.pojo.Node;
-import linkedlist.util.MyUtils;
+import linkedlist.util.LinkedListUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,8 +12,8 @@ public class Main18 {
     public static void main(String[] args) {
         // ========== 生成统一测试数据 ============
         //  1. 两条普通链表
-        Node t1_head1 = MyUtils.linkedListGenerator(10,1,100);
-        Node t1_head2 = MyUtils.linkedListGenerator(10,1,100);
+        Node t1_head1 = LinkedListUtils.linkedListGenerator(10,1,100);
+        Node t1_head2 = LinkedListUtils.linkedListGenerator(10,1,100);
         System.out.println(queryIntersectantNode(t1_head1, t1_head2));
         System.out.println();
 
@@ -24,7 +24,7 @@ public class Main18 {
         System.out.println();
 
         // 3. 一条普通一条带环
-        Node t3_head1 = MyUtils.linkedListGenerator(10,1,100);
+        Node t3_head1 = LinkedListUtils.linkedListGenerator(10,1,100);
         Node t3_head2 = withLoopLinkedList(10,1,100);
         System.out.println(queryIntersectantNode(t3_head1, t3_head2));
         System.out.println();
@@ -195,7 +195,7 @@ public class Main18 {
      */
     public static Node withLoopLinkedList(int nodeCounts, int min, int max) {
         if(nodeCounts < 3) return null;
-        Node head = MyUtils.linkedListGenerator(nodeCounts - 1, min, max);
+        Node head = LinkedListUtils.linkedListGenerator(nodeCounts - 1, min, max);
 
         Node fistLoopNode = head;
         while(fistLoopNode.next != null && fistLoopNode.next.next != null) fistLoopNode = fistLoopNode.next;
@@ -212,9 +212,9 @@ public class Main18 {
     public static Node[] intersectantLinkedListGenerator(int nodeCounts, int min, int max) {
         if (nodeCounts < 3) return null;
         // 1/3 分成三部分
-        Node head1 = MyUtils.linkedListGenerator(nodeCounts/3, min, max);
-        Node head2 = MyUtils.linkedListGenerator(nodeCounts/3, min, max);
-        Node head3 = MyUtils.linkedListGenerator(nodeCounts/3, min, max);
+        Node head1 = LinkedListUtils.linkedListGenerator(nodeCounts/3, min, max);
+        Node head2 = LinkedListUtils.linkedListGenerator(nodeCounts/3, min, max);
+        Node head3 = LinkedListUtils.linkedListGenerator(nodeCounts/3, min, max);
         Node tail1 = head1;
         Node tail2 = head2;
         while(tail1.next != null) tail1 = tail1.next;
@@ -230,9 +230,9 @@ public class Main18 {
      */
     public static Node[] intersectantLoopLinkedListGenerator(int nodeCounts, int min, int max) {
         if (nodeCounts < 5) return null;
-        Node loop = MyUtils.loopLinkedListGenerator(3,min,max);
-        Node head1 = MyUtils.linkedListGenerator((nodeCounts-3)/2, min, max);
-        Node head2 = MyUtils.linkedListGenerator((nodeCounts-3)/2+(nodeCounts - 3) % 2, min, max);
+        Node loop = LinkedListUtils.loopLinkedListGenerator(3,min,max);
+        Node head1 = LinkedListUtils.linkedListGenerator((nodeCounts-3)/2, min, max);
+        Node head2 = LinkedListUtils.linkedListGenerator((nodeCounts-3)/2+(nodeCounts - 3) % 2, min, max);
 
         Node tail1 = head1;
         Node tail2 = head2;
@@ -249,9 +249,9 @@ public class Main18 {
      */
     public static Node[] specialIntersectantLinkedListGenerator(int nodeCounts, int min, int max) {
         if (nodeCounts < 6) return null;
-        Node loop = MyUtils.loopLinkedListGenerator(3,min,max);
-        Node head1 = MyUtils.linkedListGenerator((nodeCounts-4)/2, min, max);
-        Node head2 = MyUtils.linkedListGenerator((nodeCounts-4)/2 + (nodeCounts-4) % 2, min, max);
+        Node loop = LinkedListUtils.loopLinkedListGenerator(3,min,max);
+        Node head1 = LinkedListUtils.linkedListGenerator((nodeCounts-4)/2, min, max);
+        Node head2 = LinkedListUtils.linkedListGenerator((nodeCounts-4)/2 + (nodeCounts-4) % 2, min, max);
         Node tail1 = head1;
         Node tail2 = head2;
         while(tail1.next != null) tail1 = tail1.next;

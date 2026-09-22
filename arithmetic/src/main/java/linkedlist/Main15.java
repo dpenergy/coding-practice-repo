@@ -1,7 +1,7 @@
 package linkedlist;
 
 import linkedlist.pojo.Node;
-import linkedlist.util.MyUtils;
+import linkedlist.util.LinkedListUtils;
 
 // 左右中划分partition链表
 // 两端划分
@@ -9,13 +9,13 @@ import linkedlist.util.MyUtils;
 public class Main15 {
     public static void main(String[] args) {
         int nodeCounts = 10;
-        Node head = MyUtils.linkedListGenerator(nodeCounts, 1, 10);
+        Node head = LinkedListUtils.linkedListGenerator(nodeCounts, 1, 10);
 //        int[] arr = {5, 6, 8, 5, 1, 10, 6, 6, 4, 9 };
 //        Node head = MyUtils.linkedListGenerator(arr);
-        Node copyHead = MyUtils.copyLinkedList(head);
-        MyUtils.printLinkedList(head);
-        MyUtils.printLinkedList(threePartPartition(head,5));
-        MyUtils.printLinkedList(normalPartition(copyHead,5));
+        Node copyHead = LinkedListUtils.copyLinkedList(head);
+        LinkedListUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(threePartPartition(head,5));
+        LinkedListUtils.printLinkedList(normalPartition(copyHead,5));
     }
 
     // 面试解法（限制空间复炸度为O(1)）
@@ -72,7 +72,7 @@ public class Main15 {
 
     // 笔试解法（空间复杂度不限制）
     public static Node normalPartition(Node head, int num) {
-        Node[] nodes = MyUtils.linkedListToArray(head);
+        Node[] nodes = LinkedListUtils.linkedListToArray(head);
 
         int p1 = -1; // < 区域内边界
         int p2 = nodes.length; // > 区域内边界
@@ -80,11 +80,11 @@ public class Main15 {
 
         while(i < p2) {
             if(nodes[i].value < num) {
-                MyUtils.swap(nodes,i++,++p1);
+                LinkedListUtils.swap(nodes,i++,++p1);
             } else if(nodes[i].value == num) {
                 i++;
             } else {
-                MyUtils.swap(nodes,i,--p2);
+                LinkedListUtils.swap(nodes,i,--p2);
             }
         }
 

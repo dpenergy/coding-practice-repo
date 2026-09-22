@@ -1,7 +1,7 @@
 package linkedlist;
 
 import linkedlist.pojo.Node;
-import linkedlist.util.MyUtils;
+import linkedlist.util.LinkedListUtils;
 
 // 链表题目
 public class Main12 {
@@ -11,9 +11,9 @@ public class Main12 {
         Node head = singlyLinkedListGenerator(nodeCounts,1,100);
 
         // test singlyLinkedListInversion()
-        MyUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(head);
         head = singlyLinkedListInversion(singlyLinkedListInversion(head)); // 直接转换两次就可以边界的看是否反转成功了
-        MyUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(head);
 
         System.out.println("\n\n==================\n\n");
 

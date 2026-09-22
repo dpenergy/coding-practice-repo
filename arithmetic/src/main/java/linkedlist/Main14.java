@@ -1,8 +1,7 @@
 package linkedlist;
 import linkedlist.pojo.Node;
-import linkedlist.util.MyUtils;
+import linkedlist.util.LinkedListUtils;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 // 判断链表是否是回文序列
@@ -10,13 +9,13 @@ import java.util.Stack;
 public class Main14 {
     public static void main(String[] args) {
         Node head = palindromeLinkedListGenerator(7,1,100);
-        MyUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(head);
 
         System.out.println(verifyPalindromeLinkedList(head));
         System.out.println(verifyPalindromeLinkedListPlusVersion(head));
 
 
-        MyUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(head);
 
     }
 
@@ -107,7 +106,7 @@ public class Main14 {
      */
     public static Node palindromeLinkedListGenerator(int nodeCounts, int min, int max) {
         // 先取一半，或者半偏左
-        int[] palindromeArray = MyUtils.palindromeArrayGenerator(nodeCounts, min, max);
+        int[] palindromeArray = LinkedListUtils.palindromeArrayGenerator(nodeCounts, min, max);
 
         Node head = new Node(palindromeArray[0]);
         Node tail = head;

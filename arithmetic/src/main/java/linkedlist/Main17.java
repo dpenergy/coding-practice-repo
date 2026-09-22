@@ -1,15 +1,15 @@
 package linkedlist;
 
 import linkedlist.pojo.SpecialNode;
-import linkedlist.util.MyUtils;
+import linkedlist.util.LinkedListUtils;
 
 public class Main17 {
     public static void main(String[] args) {
         int size = 10;
-        SpecialNode head = MyUtils.specialLinkedListGenerator(size,1,100);
-        MyUtils.printLinkedList(head);
-        MyUtils.printLinkedList(copySpecialLinkedList(head));
-        MyUtils.printLinkedList(normalCopySpecialLinkedList(head));
+        SpecialNode head = LinkedListUtils.specialLinkedListGenerator(size,1,100);
+        LinkedListUtils.printLinkedList(head);
+        LinkedListUtils.printLinkedList(copySpecialLinkedList(head));
+        LinkedListUtils.printLinkedList(normalCopySpecialLinkedList(head));
     }
 
     // 不考虑额外空间的方法

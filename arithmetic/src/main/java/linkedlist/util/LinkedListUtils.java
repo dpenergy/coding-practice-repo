@@ -2,7 +2,7 @@ package linkedlist.util;
 import linkedlist.pojo.Node;
 import linkedlist.pojo.SpecialNode;
 
-public class MyUtils {
+public class LinkedListUtils {
     //swap是程序员
     public static void swap(int[] arr, int i, int j) {
         if (arr[i] == arr[j]) return;
@@ -44,7 +44,7 @@ public class MyUtils {
         int halfSize = size/2; // 避免魔法数字，赋予变量语义
         int[] res = new int[size];
 
-        int[] halfArray = MyUtils.randomArrayGenerator(halfSize, min, max);
+        int[] halfArray = LinkedListUtils.randomArrayGenerator(halfSize, min, max);
 
         System.arraycopy(halfArray, 0, res, 0, halfSize);
 
